@@ -1,0 +1,236 @@
+@charset 'UTF-8'
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: var(--background-image);
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+h4 {
+  margin-top: 0;
+  user-select: none;
+  text-align: center;
+}
+
+main {
+  min-height: 95vh;
+  padding: 1rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+#index-show {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+#sway {
+  text-align: center;
+  will-change: transform;
+  transition: transform 0.2s;
+  color: var(--text-color);
+  margin-top: 45vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  height: fit-content;
+}
+
+#sway>span {
+  font-weight: 550;
+  font-size: 4rem;
+  user-select: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+#down-arrow {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  bottom: 3rem;
+  left: calc(50vw - 1rem);
+  cursor: pointer;
+  background-image: url('/img/downarrow.png');
+  background-position: center;
+  background-size: contain;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card {
+  color: var(--text-color);
+  background-color: var(--background-color) !important;
+  position: relative;
+  z-index: 2;
+  margin: 1rem;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+#gitalk-container {
+  box-sizing: border-box;
+  width: 75%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#articles {
+  display: inline-flex;
+  width: 75%;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.article {
+  font-weight: 550;
+  font-size: 1.25rem;
+}
+
+#links {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: center;
+}
+
+#links>a {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#right-part {
+  box-sizing: border-box;
+  position: sticky;
+  top: 3em;
+  width: 25%;
+  float: right;
+}
+
+#hitokotoRef {
+  text-align: right;
+  font-weight: 400;
+}
+
+#hitokotoRef:empty {
+  visibility: hidden;
+}
+
+#hitokotoRef::before {
+  content: '——';
+}
+
+.refresh {
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
+  background-size: contain;
+  vertical-align: bottom;
+  cursor: pointer;
+  background-image: var(--refresh-image);
+}
+
+.popup {
+  z-index: -2;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.popup .card {
+  position: relative;
+  top: calc(50% - 10em);
+  left: auto;
+  right: auto;
+  width: 20em;
+  height: 20em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button, input {
+  background-color: var(--auxbg-color);
+  color: var(--auxiliary-color);
+  border: none;
+  display: block;
+  margin: 10px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes cutin {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cutout {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+}
+
+@media (max-device-width: 450px) {
+  .card {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  #right-part {
+    position: relative;
+    float: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+  }
+
+  #gitalk-container {
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  #articles {
+    width: 100%;
+    margin-top: 40px;
+    padding-top: 0;
+  }
+
+  #sway>span {
+    font-size: 2em;
+  }
+}

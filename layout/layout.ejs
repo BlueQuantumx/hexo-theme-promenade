@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="<%= config.author %>" />
+  <meta name="description" content="<%= config.description %>" />
+  <link rel="icon" type="image/ico" sizes="512x512" href="/favicon.ico" />
+  <%- css("css/common") %>
+  <%- js("js/common") %>
+
+  <% if (is_home()) { %>
+  <%- partial("partial/head/home") %>
+  <% } %>
+
+  <% if (is_post()) { %>
+  <%- partial("partial/head/post") %>
+  <% } %>
+</head>
+
+<body>
+  <nav id="top-panel">
+    <span id="myname">BlueQuantum's Blog</span>
+    <span id="colorSwitch" class="color-switch"></span>
+    <a id="about" href="/about.html">关于</a>
+  </nav>
+  <%- body %>
+  <%- partial("partial/footer") %>
+</body>
+
+</html>
