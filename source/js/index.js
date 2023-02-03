@@ -3,19 +3,19 @@ let mainContainer = document.getElementsByTagName("main")[0];
 let topPanel = document.getElementById("top-panel");
 
 // 首页特效
-document.getElementById("index-show").addEventListener("mousemove", (() => {
-  let previous = 0;
-  return event => {
-    let now = Date.now();
-    if (now - previous > 16) {
-      let offsX = document.documentElement.clientWidth * 0.5;
-      let offsY = document.documentElement.clientHeight * 0.5;
-      if (flag == false)
-        sway.style.transform = "translate(" + (event.pageX - offsX) * 0.1 + "px" + "," + (event.pageY - offsY) * 0.1 + "px)";
-      previous = now;
-    }
-  }
-})());
+// document.getElementById("index-show").addEventListener("mousemove", (() => {
+//   let previous = 0;
+//   return event => {
+//     let now = Date.now();
+//     if (now - previous > 16) {
+//       let offsX = document.documentElement.clientWidth * 0.5;
+//       let offsY = document.documentElement.clientHeight * 0.5;
+//       if (flag == false)
+//         sway.style.transform = "translate(" + (event.pageX - offsX) * 0.1 + "px" + "," + (event.pageY - offsY) * 0.1 + "px)";
+//       previous = now;
+//     }
+//   }
+// })());
 
 // Scroll特效
 const duration = 700;
