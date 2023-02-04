@@ -48,17 +48,18 @@ main {
   -webkit-backdrop-filter: blur(8px);
   border-radius: 1rem;
   padding: 1em;
-}
 
-#sway>span {
-  font-weight: 550;
-  font-size: 4rem;
-  user-select: none;
-}
+  span {
+    font-weight: 550;
+    font-size: 4rem;
+    user-select: none;
 
-#sway>span:nth-child(3) {
-  font-weight: 400;
-  font-size: 1rem;
+    &:nth-child(3) {
+      font-weight: 400;
+      font-size: 1rem;
+    }
+  }
+
 }
 
 #down-arrow {
@@ -111,11 +112,11 @@ main {
   flex-direction: column;
   align-content: flex-start;
   align-items: center;
-}
 
-#links>a {
-  margin-top: 3px;
-  margin-bottom: 3px;
+  a {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
 }
 
 #right-part {
@@ -129,14 +130,14 @@ main {
 #hitokotoRef {
   text-align: right;
   font-weight: 400;
-}
 
-#hitokotoRef:empty {
-  visibility: hidden;
-}
+  &:empty {
+    visibility: hidden;
+  }
 
-#hitokotoRef::before {
-  content: '——';
+  &::before {
+    content: '——';
+  }
 }
 
 .refresh {
@@ -158,17 +159,17 @@ main {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   text-align: center;
-}
 
-.popup .card {
-  position: relative;
-  top: calc(50% - 10em);
-  left: auto;
-  right: auto;
-  width: 20em;
-  height: 20em;
-  margin-left: auto;
-  margin-right: auto;
+  .card {
+    position: relative;
+    top: calc(50% - 10em);
+    left: auto;
+    right: auto;
+    width: 20em;
+    height: 20em;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 button,
