@@ -1,3 +1,18 @@
 <div>
-  <%- page.content %> 
+  <h1>
+    <%- page.title %>
+  </h1>
+  <div class="clips">
+    <div class="categories">
+      <% page.categories.forEach(element => { %>
+      <a class="clip"> <% element.name %> </a>
+      <% }) %>
+    </div>
+    <div class="tags">
+      <% page.tags.forEach(element => { %>
+      <a class="clip"> <%- element.name %> </a>
+      <% }) %>
+    </div>
+  </div>
+  <%- page.content %>
 </div>
