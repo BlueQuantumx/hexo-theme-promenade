@@ -19,7 +19,7 @@
   </div>
 
   <div id="articles">
-    <% page.posts.forEach(post => { %>
+    <% site.posts.forEach(post => { %>
     <a class="card article" href="<%- url_for(post.path) %>">
       <%- post.title %>
     </a>
