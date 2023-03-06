@@ -1,11 +1,14 @@
-<div id="index-show">
-  <div id="sway">
-    <span> <%- config.title %> </span>
-    <br>
-    <span> <%- config.subtitle %> </span>
+<% if (page.current === 1) { %>
+  <div id="index-show">
+    <div id="sway">
+      <span> <%- config.title %> </span>
+      <br>
+      <span> <%- config.subtitle %> </span>
+    </div>
+    <span id="down-arrow"></span>
   </div>
-  <span id="down-arrow"></span>
-</div>
+<% } %>
+
 <main>
   <div id="right-part">
     <div id="hitokoto" class="card">
@@ -19,11 +22,14 @@
   </div>
 
   <div id="articles">
-    <% site.posts.forEach(post => { %>
-    <a class="card article" href="<%- url_for(post.path) %>">
-      <%- post.title %>
-    </a>
+    <% page.posts.forEach(post=> { %>
+      <a class="card article" href="<%- url_for(post.path) %>">
+        <%- post.title %>
+      </a>
     <% }) %>
+      <div class="paginator">
+        <%- paginator({ escape: false, prev_text: '&laquo;', next_text: '&raquo;' }) %>
+      </div>
   </div>
 </main>
 
