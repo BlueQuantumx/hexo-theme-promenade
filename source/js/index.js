@@ -17,34 +17,6 @@ let topPanel = document.getElementById("top-panel");
 //   }
 // })());
 
-// Scroll特效
-const duration = 700;
-let inAnimation = false;
-let start, ori, target;
-
-/* function c_bezier(p0, p1, p2, p3, t) {
-  return p0 * (1 - t) * (1 - t) * (1 - t) + 3 * p1 * t * (1 - t) * (1 - t) + 3 * p2 * t * t * (1 - t) + p3 * t * t * t;
-} */
-function c_bezier(t) {
-  return 2.1 * t * (1 - t) * (1 - t) + 3 * t * t * (1 - t) + t * t * t;
-}
-document.getElementById("down-arrow").addEventListener("click", () => {
-  if (!inAnimation) {
-    inAnimation = true;
-    ori = document.documentElement.scrollTop;
-    target = (document.documentElement.clientHeight - ori - 80);
-    requestAnimationFrame(scrollAnimation);
-  }
-});
-
-function scrollAnimation(stepTime) {
-  if (start === undefined) start = stepTime;
-  const delta = stepTime - start;
-  scrollTo(0, ori + target * c_bezier(delta / duration));
-  if (delta < duration) requestAnimationFrame(scrollAnimation);
-  else start = undefined, inAnimation = false;
-}
-
 window.addEventListener("scroll", (() => {
   let previous = 0;
   return function () {

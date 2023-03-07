@@ -1,12 +1,41 @@
 <% if (page.current === 1) { %>
-  <div id="index-show">
-    <div id="sway">
-      <span> <%- config.title %> </span>
-      <br>
-      <span> <%- config.subtitle %> </span>
-    </div>
-    <span id="down-arrow"></span>
+<div id="index-show">
+  <div id="sway">
+    <span> <%- config.title %> </span>
+    <br>
+    <span> <%- config.subtitle %> </span>
   </div>
+  <span id="down-arrow"></span>
+</div>
+<script>
+  // Scroll特效
+  const duration = 700;
+  let inAnimation = false;
+  let start, ori, target;
+
+  /* function c_bezier(p0, p1, p2, p3, t) {
+    return p0 * (1 - t) * (1 - t) * (1 - t) + 3 * p1 * t * (1 - t) * (1 - t) + 3 * p2 * t * t * (1 - t) + p3 * t * t * t;
+  } */
+  function c_bezier(t) {
+    return 2.1 * t * (1 - t) * (1 - t) + 3 * t * t * (1 - t) + t * t * t;
+  }
+  document.getElementById("down-arrow").addEventListener("click", () => {
+    if (!inAnimation) {
+      inAnimation = true;
+      ori = document.documentElement.scrollTop;
+      target = (document.documentElement.clientHeight - ori - 80);
+      requestAnimationFrame(scrollAnimation);
+    }
+  });
+
+  function scrollAnimation(stepTime) {
+    if (start === undefined) start = stepTime;
+    const delta = stepTime - start;
+    scrollTo(0, ori + target * c_bezier(delta / duration));
+    if (delta < duration) requestAnimationFrame(scrollAnimation);
+    else start = undefined, inAnimation = false;
+  }
+</script>
 <% } %>
 
 <main>
@@ -23,13 +52,13 @@
 
   <div id="articles">
     <% page.posts.forEach(post=> { %>
-      <a class="card article" href="<%- url_for(post.path) %>">
-        <%- post.title %>
-      </a>
+    <a class="card article" href="<%- url_for(post.path) %>">
+      <%- post.title %>
+    </a>
     <% }) %>
-      <div class="paginator">
-        <%- paginator({ escape: false, prev_text: '&laquo;', next_text: '&raquo;' }) %>
-      </div>
+    <div class="paginator">
+      <%- paginator({ escape: false, prev_text: '&laquo;', next_text: '&raquo;' }) %>
+    </div>
   </div>
 </main>
 
