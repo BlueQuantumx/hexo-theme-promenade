@@ -18,6 +18,10 @@
   <% if (is_post()) { %>
   <%- partial("partial/head/post") %>
   <% } %>
+
+  <% if (is_tag()) { %>
+  <%- partial("partial/head/tags") %>
+  <% } %>
 </head>
 
 <body>

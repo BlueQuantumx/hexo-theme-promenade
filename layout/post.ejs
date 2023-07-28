@@ -8,12 +8,12 @@
   <div class="clips">
     <div class="categories">
       <% page.categories.forEach(element => { %>
-      <a class="clip"> <% element.name %> </a>
+      <a class="clip" href="/tags/<%- element.name %>"><%- element.name %></a>
       <% }) %>
     </div>
     <div class="tags">
       <% page.tags.forEach(element => { %>
-      <a class="clip"> <%- element.name %> </a>
+      <a class="clip" href="/tags/<%- element.name %>"><%- element.name %></a>
       <% }) %>
     </div>
   </div>

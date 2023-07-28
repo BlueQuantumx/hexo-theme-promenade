@@ -1,0 +1,33 @@
+<main>
+  <div id="right-part">
+    <div id="hitokoto" class="card">
+      <h4>一言<span class="refresh"></span></h4>
+      <div id="hitokotoText"></div>
+      <div id="hitokotoRef"></div>
+    </div>
+    <div id="links" class="card">
+      <h4>友链</h4>
+    </div>
+  </div>
+
+  <div id="articles">
+    <% page.posts.forEach(post => { %>
+    <a class="card article" href="<%- url_for(post.path) %>">
+      <%- post.title %>
+      <% if (post.excerpt) { %>
+      <div class="excerpt">
+        <%- post.excerpt %>
+        <div class="more">
+          --- more ---
+        </div>
+      </div>
+      <% } %>
+    </a>
+    <% }) %>
+    <div class="paginator">
+      <%- paginator({ escape: false, prev_text: '&laquo;', next_text: '&raquo;' }) %>
+    </div>
+  </div>
+</main>
+
+<%- js("js/index") %>
